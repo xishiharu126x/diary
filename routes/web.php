@@ -15,4 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/','DiaryController@index');
+//'このURLのとき'、'コントローラー＠メソッド'   //↓好きな名前でok
+Route::get('/','DiaryController@index')->name('diary.index');
+Route::get('/diary/create','DiaryController@create')->name('diary.create');
+Route::post('/diary/store','DiaryController@store')->name('diary.store');
