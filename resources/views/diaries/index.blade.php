@@ -8,7 +8,7 @@
     <title>一覧表示画面</title>
 </head>
 <body>
-<a href="{{ route('diary.create') }}" class="btn btn-primary mt-3">NEW</a>
+<a href="{{ route('diary.create') }}" class="btn btn-primary btn-block mt-3">NEW</a>
   @foreach($diaries as $diary)
     <div class="m-4 p-4 border border-primary">
     <p>{{$diary->title}}</p>
