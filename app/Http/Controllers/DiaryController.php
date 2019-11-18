@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Diary;
 //CreateDiaryを使用する宣言
 use App\Http\Requests\CreateDiary;
+//ログイン情報を管理する
+use Illuminate\Support\Facades\Auth;
 
 class DiaryController extends Controller
 {
@@ -42,6 +44,9 @@ class DiaryController extends Controller
         // $diary->カラム名 = カラムに設定したい値
         $diary->title = $request->title;
         $diary->body = $request->body;
+        // dd(Auth::user());
+        $diary->user_id = Auth::user()->id;
+
 
         //DBに保存実行
         $diary->save();

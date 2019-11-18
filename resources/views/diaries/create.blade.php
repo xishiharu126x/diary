@@ -1,6 +1,6 @@
 
 <!-- layout.blade.phpを読み込む -->
-@extends('layout')
+@extends('layouts.app')
 
 @section('title','新規作成')
 
