@@ -1,13 +1,15 @@
 
 <!-- layout.blade.phpを読み込む -->
-@extends('layout')
+@extends('layouts.app')
 
 @section('title','一覧')
 
 @section('content')
-<a href="{{ route('diary.create') }}" class="btn btn-primary btn-block mt-3">NEW</a>
+<div class="text-center">
+<a href="{{ route('diary.create') }}" class="btn btn-primary mt-3">新規作成</a>
+</div>
   @foreach($diaries as $diary)
-    <div class="m-4 p-4 border border-primary">
+    <div class="m-4 p-4 border border-primary text-center">
     <p>{{$diary->title}}</p>
     <p>{{$diary->body}}</p>
     <p>{{$diary->created_at}}</p>
