@@ -65,10 +65,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $imgPath = $this->saveProfileImage($data['picture']);
+        // dd($imgPath);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'picture_path' => $imgPath
         ]);
+    }
+
+    //プロフィール画像を保存するためのメソッド
+    //引数 image:保存したい画像
+    private function saveProfileImage($image)
+    {
+        //storeは保存。保存した後そのファイルまでのパスをかえしてくれる
+        $imgPath = $image->store('images/profilePicture','public');
+
+        return 'storage/'. $imgPath;
     }
 }
